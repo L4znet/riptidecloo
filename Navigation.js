@@ -13,6 +13,7 @@ export default function Navigation() {
     const [viewState, setViewState] = useState(false)
 
     return (
+        <AppContext.Provider value={{ viewState, setViewState }}>
             <NavigationContainer>
                 <Tab.Navigator initialRouteName="Home">
                     <Tab.Screen
@@ -30,5 +31,6 @@ export default function Navigation() {
                     />
                 </Tab.Navigator>
             </NavigationContainer>
+        </AppContext.Provider>
     );
 }
