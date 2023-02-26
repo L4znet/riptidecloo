@@ -26,6 +26,21 @@ export default function MapTabScreen(){
                 longitude: -1.553621,
                 latitudeDelta: 0.0922,
                 longitudeDelta: 0.0421
+            }}>
+            {data.map((marker, index) => {
+                return (
+                    <Marker
+                        key={index}
+                        coordinate={{ latitude : marker.position.latitude , longitude : marker.position.longitude }}
+                        pinColor = {"orange"}
+                        title={"title"}
+                        description={"description"}
+                    />
+                )
+            })}
+        </MapView>
+    )
+}
 
 
 const styles = StyleSheet.create({
