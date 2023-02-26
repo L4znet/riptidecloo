@@ -5,6 +5,12 @@ import {StyleSheet, View, Text} from "react-native";
 export default function MapTabScreen(){
 
 
+    const [data, setData] = useState([]);
+    useEffect(() => {
+        fetch("https://api.jcdecaux.com/vls/v3/stations?apiKey=" + JCDECAUX_API_KEY)
+            .then(response => response.json())
+            .then(data => setData(data));
+    },[]);
 
     return (
         <MapView
