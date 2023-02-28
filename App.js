@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 
@@ -18,3 +19,25 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+=======
+import * as React from 'react';
+import {
+    MD3LightTheme as DefaultTheme,
+    Provider as PaperProvider,
+} from 'react-native-paper';
+import Navigation from "./Navigation";
+import {createStore} from "redux";
+const theme = {
+    ...DefaultTheme,
+};
+import rootReducer from './reducers'
+const store = createStore(rootReducer)
+
+export default function App() {
+    return (
+    <PaperProvider theme={theme}>
+        <Navigation />
+    </PaperProvider>
+    );
+}
+>>>>>>> Stashed changes
