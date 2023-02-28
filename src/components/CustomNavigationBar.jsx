@@ -2,8 +2,8 @@ import {Appbar, IconButton, useTheme} from 'react-native-paper';
 import {StyleSheet, Switch, Text, View} from 'react-native';
 import { ToggleButton } from 'react-native-paper';
 import {useContext, useState} from "react";
-import Toggle from "react-native-toggle-element";
 import {AppContext} from "../../AppContext";
+import Toggle from "react-native-toggle-element/src/toggle";
 export default function CustomNavigationBar(){
     const theme = useTheme();
     const { viewState, setViewState } = useContext(AppContext);
