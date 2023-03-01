@@ -1,9 +1,9 @@
 import {StyleSheet, View, Text} from "react-native";
 import {useContext, useEffect, useState} from "react";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import MapTabScreen from "./tabs/MapTabScreen";
-import ListTabScreen from "./tabs/ListTabScreen";
 import {AppContext} from "../../AppContext";
+import ListTabScreen from "./tabs/ListTabScreen";
+import MapTabScreen from "./tabs/MapTabScreen";
 
 export default function HomeScreen({ navigation }) {
     const Tab = createBottomTabNavigator();

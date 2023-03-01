@@ -1,23 +1,19 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-export const counterSlice = createSlice({
+export const mapDataSlice = createSlice({
     name: 'mapData',
     initialState: {
-        value: 0
+        bikeStations: []
     },
     reducers: {
-        increment: state => {
-            state.value += 1
+        updateBikeStation: (state, action) => {
+            state.bikeStations.push(action.payload)
         },
-        decrement: state => {
-            state.value -= 1
-        },
-        incrementByAmount: (state, action) => {
-            state.value += action.payload
-        }
     }
 })
 
-export const { increment, decrement, incrementByAmount } = counterSlice.actions
+export const { updateBikeStation, getBikeStation } = mapDataSlice.actions
 
-export default counterSlice.reducer
+export const bikeStations = state => state.bikeStations
+
+export default mapDataSlice.reducer

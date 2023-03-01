@@ -12,6 +12,7 @@ export default function CustomNavigationBar(){
     return (
         <Appbar.Header style={{justifyContent:"center" }}>
             <Toggle
+                animationDuration={100}
                 value={viewState}
                 onPress={(newState) => setViewState(newState)}
                 trackBar={{
