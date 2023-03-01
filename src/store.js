@@ -1,8 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit'
-import counterReducer from '../features/counter/counterSlice'
-
+import mapDataReducer from "./store/map/mapDataSlice"
 export default configureStore({
     reducer: {
-        counter: counterReducer
-    }
+        map: mapDataReducer
+    },
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+        immutableCheck: false,
+        serializableCheck: false,
+    })
 })
+

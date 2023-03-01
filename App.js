@@ -5,6 +5,8 @@ import {
 } from 'react-native-paper';
 import Navigation from "./Navigation";
 import {createStore} from "redux";
+import {Provider} from "react-redux";
+import store from "./src/store";
 const theme = {
     ...DefaultTheme,
 };
@@ -12,8 +14,11 @@ const theme = {
 
 export default function App() {
     return (
-    <PaperProvider theme={theme}>
-        <Navigation />
-    </PaperProvider>
+        <Provider store={store}>
+            <PaperProvider theme={theme}>
+                <Navigation />
+            </PaperProvider>
+        </Provider>
     );
 }
+
