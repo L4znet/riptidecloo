@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import MapView, {Marker} from "react-native-maps";
+import MapView, {Marker, Callout} from "react-native-maps";
 import {JCDECAUX_API_KEY} from '@env';
 import {StyleSheet, View, Text, ActivityIndicator} from "react-native";
 
@@ -25,6 +25,9 @@ export default function MapTabScreen(){
 
     },[bikeStations]);
 
+    const clickMarker = () => {
+        console.log("sfdsdfsfdsfd")
+    }
 
     if(bikeStations.length !== 0){
         return (
@@ -50,14 +53,15 @@ export default function MapTabScreen(){
                                 key={index}
                                 coordinate={{ latitude : marker.position.latitude , longitude : marker.position.longitude }}
                                 pinColor = {"orange"}
-                                title={"title"}
-                                description={"description"}
-                            />
+                                size={50}
+                                title={marker.name}
+                                description={marker.address}
+                                onPress={() => clickMarker()}>
+                            </Marker>
                         )
                     })}
                 </MapView>
             </>
-
         )
     } else {
         return (
@@ -66,6 +70,7 @@ export default function MapTabScreen(){
             </View>
         )
     }
+
 }
 
 

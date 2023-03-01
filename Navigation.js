@@ -10,13 +10,17 @@ import {AppContext} from "./AppContext";
 
 export default function Navigation() {
     const Tab = createBottomTabNavigator();
+    const Stack = createStackNavigator();
     const [viewState, setViewState] = useState(false)
+
+
+
 
     return (
         <AppContext.Provider value={{ viewState, setViewState }}>
             <NavigationContainer>
-                <Tab.Navigator initialRouteName="Home">
-                    <Tab.Screen
+                <Stack.Navigator>
+                    <Stack.Screen
                         name="Home"
                         component={HomeScreen}
                         options={({ navigation }) => ({
@@ -25,11 +29,7 @@ export default function Navigation() {
                             ),
                         })}
                     />
-                    <Tab.Screen
-                        name="Detail"
-                        component={DetailsScreen}
-                    />
-                </Tab.Navigator>
+                </Stack.Navigator>
             </NavigationContainer>
         </AppContext.Provider>
     );

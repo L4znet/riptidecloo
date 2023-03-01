@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 export const mapDataSlice = createSlice({
     name: 'mapData',
     initialState: {
-        bikeStations: []
+        bikeStations:[]
     },
     reducers: {
         updateBikeStation: (state, action) => {
