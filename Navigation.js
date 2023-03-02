@@ -29,6 +29,12 @@ export default function Navigation() {
                             ),
                         })}
                     />
+                    <Stack.Screen
+                        name="Details"
+                        component={DetailsScreen}
+                        options={({ navigation }) => ({
+                        })}
+                    />
                 </Stack.Navigator>
             </NavigationContainer>
         </AppContext.Provider>

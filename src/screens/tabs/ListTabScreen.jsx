@@ -4,10 +4,13 @@ import {JCDECAUX_API_KEY} from '@env';
 import {StyleSheet, View, Text, ActivityIndicator, SafeAreaView, FlatList, TouchableHighlight} from "react-native";
 import {Badge, List, TouchableRipple} from 'react-native-paper';
 import {useSelector} from "react-redux";
+import {useNavigation} from "@react-navigation/native";
 
 
 
 export default function ListTabScreen(){
+
+    const navigation = useNavigation();
     const itemPerBatch = 7
     const [currentBatchNumber, setCurrentBatchNumber] = useState(itemPerBatch)
     const bikeStations = useSelector(state => state.map.bikeStations)
@@ -19,7 +22,7 @@ export default function ListTabScreen(){
     }
 
     const goToDetail = () => {
-        console.log("CA FONCTIONNE")
+        navigation.navigate('Details')
     }
     const Item = ({title, isOpened}) => {
         let isOpenedState;

@@ -5,10 +5,11 @@ import {StyleSheet, View, Text, ActivityIndicator} from "react-native";
 
 import { useSelector, useDispatch } from 'react-redux'
 import {updateBikeStation} from "../../store/map/mapDataSlice";
+import { useNavigation } from '@react-navigation/native';
 import store from "../../store";
 import {MD2Colors} from "react-native-paper";
 export default function MapTabScreen(){
-
+    const navigation = useNavigation();
 
     const bikeStations = useSelector(state => state.map.bikeStations)
     useEffect(() => {
@@ -26,7 +27,7 @@ export default function MapTabScreen(){
     },[bikeStations]);
 
     const clickMarker = () => {
-        console.log("sfdsdfsfdsfd")
+        navigation.navigate('Details')
     }
 
     if(bikeStations.length !== 0){
