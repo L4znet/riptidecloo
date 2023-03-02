@@ -21,10 +21,12 @@ export default function ListTabScreen(){
         )
     }
 
-    const goToDetail = () => {
-        navigation.navigate('Details')
+    const goToDetail = (name) => {
+        navigation.navigate('Details', {
+            itemName: name,
+        });
     }
-    const Item = ({title, isOpened}) => {
+    const Item = ({title, isOpened, id}) => {
         let isOpenedState;
         if(isOpened === "OPEN"){
             isOpenedState = (<State color={"#8bd347"} size={50}></State>)
@@ -37,7 +39,7 @@ export default function ListTabScreen(){
                 style={styles.item}
                 activeOpacity={0.6}
                 underlayColor="#DDDDDD"
-                onPress={() => goToDetail()}>
+                onPress={() => goToDetail(title)}>
                 <>
                     <Text style={styles.title}>{title}</Text>
                     {isOpenedState}

@@ -18,7 +18,7 @@ export default function MapTabScreen(){
             fetch("https://api.jcdecaux.com/vls/v3/stations?apiKey=7c65bdace8ff9dcc9112945ba5f0d38826441eac")
                 .then(response => response.json())
                 .then(data => {
-
+                    console.log(typeof data)
                     store.dispatch(updateBikeStation(data))
                 });
         }
@@ -26,8 +26,10 @@ export default function MapTabScreen(){
 
     },[bikeStations]);
 
-    const clickMarker = () => {
-        navigation.navigate('Details')
+    const goToDetail = (name) => {
+        navigation.navigate('Details', {
+            itemName: name,
+        });
     }
 
     if(bikeStations.length !== 0){
@@ -57,7 +59,7 @@ export default function MapTabScreen(){
                                 size={50}
                                 title={marker.name}
                                 description={marker.address}
-                                onPress={() => clickMarker()}>
+                                onPress={() => goToDetail(marker.name)}>
                             </Marker>
                         )
                     })}
