@@ -15,7 +15,7 @@ export default function MapTabScreen(){
     useEffect(() => {
 
         if(bikeStations.length === 0){
-            fetch("https://api.jcdecaux.com/vls/v3/stations?apiKey=7c65bdace8ff9dcc9112945ba5f0d38826441eac")
+            fetch("https://api.jcdecaux.com/vls/v3/stations?apiKey=" + JCDECAUX_API_KEY)
                 .then(response => response.json())
                 .then(data => {
                     console.log(typeof data)
