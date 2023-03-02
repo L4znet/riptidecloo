@@ -12,7 +12,7 @@ export const mapDataSlice = createSlice({
     }
 })
 
-export const { updateBikeStation, getBikeStation } = mapDataSlice.actions
+export const { updateBikeStation } = mapDataSlice.actions
 
 export const bikeStations = state => state.bikeStations
 

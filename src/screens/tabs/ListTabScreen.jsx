@@ -48,15 +48,23 @@ export default function ListTabScreen(){
         )
     };
 
+    /**
+     * Here we limit the number of element display by "batch", 7 per 7
+     *
+     * @param array
+     * @returns {*}
+     */
     const limitArray = (array) => {
         return array.slice(0, currentBatchNumber)
     }
 
+    /**
+     * And use that for loadmore data
+     *
+     */
     const loadMore = () => {
         setCurrentBatchNumber(currentBatchNumber + itemPerBatch)
     }
-
-
 
     return (
             <SafeAreaView style={styles.container}>

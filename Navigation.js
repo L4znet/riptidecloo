@@ -9,12 +9,8 @@ import {useState} from "react";
 import {AppContext} from "./AppContext";
 
 export default function Navigation() {
-    const Tab = createBottomTabNavigator();
     const Stack = createStackNavigator();
     const [viewState, setViewState] = useState(false)
-
-
-
 
     return (
         <AppContext.Provider value={{ viewState, setViewState }}>

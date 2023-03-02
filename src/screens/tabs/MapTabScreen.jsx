@@ -9,11 +9,16 @@ import { useNavigation } from '@react-navigation/native';
 import store from "../../store";
 import {MD2Colors} from "react-native-paper";
 export default function MapTabScreen(){
+    /**
+     * Screen for displaying the map
+     *
+     * @type {NavigationProp<ReactNavigation.RootParamList>}
+     */
+
     const navigation = useNavigation();
 
     const bikeStations = useSelector(state => state.map.bikeStations)
     useEffect(() => {
-
         if(bikeStations.length === 0){
             fetch("https://api.jcdecaux.com/vls/v3/stations?apiKey=" + JCDECAUX_API_KEY)
                 .then(response => response.json())
@@ -26,12 +31,23 @@ export default function MapTabScreen(){
 
     },[bikeStations]);
 
+
+    /**
+     * Method for navigate to the Detail Screen
+     *
+     * @param name
+     */
     const goToDetail = (name) => {
         navigation.navigate('Details', {
             itemName: name,
         });
     }
 
+
+    /**
+     * Here we check if the array is empty, and if not, display the map
+     *
+     */
     if(bikeStations.length !== 0){
         return (
             <>
